@@ -9,12 +9,16 @@ const cors = require("cors");
 db();
 const app = express();
 const PORT = process.env.PORT || 5000;
+const { populateStarships, populateVehicles } = require("./utils/populateDb");
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use(express.json());
 
-app.use("/api/v1", appRoutes);
+populateStarships();
+populateVehicles();
+
+app.use("/", appRoutes);
 app.use(errorHandler);
 const server = app.listen(
   PORT,
