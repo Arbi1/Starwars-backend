@@ -14,7 +14,10 @@ const { populateStarships, populateVehicles } = require("./utils/populateDb");
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use(express.json());
+
+// Fixing the certificate expired error
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 populateStarships();
 populateVehicles();
 
