@@ -14,6 +14,6 @@ router.post("/api/starships", changeStarshipCount);
 router.get("/api/vehicles", vehicleHandler);
 router.post("/api/vehicles", changeVehicleCount);
 
-router.use("/api", proxyHandler);
+router.use("/", proxyHandler);
 
 module.exports = router;
